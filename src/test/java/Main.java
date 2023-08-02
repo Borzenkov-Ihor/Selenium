@@ -16,7 +16,7 @@ public class Main {
         driver.manage().window().maximize();
 
         WebDriverWait wait = new WebDriverWait(driver, 15);
-//        wait.until(d -> d.findElement(search)).click();
+        wait.until(d -> d.findElement(search)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(search)).sendKeys("Ubisoft");
 
 
