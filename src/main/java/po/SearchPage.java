@@ -7,16 +7,19 @@ public class SearchPage extends BaseMethod {
     private final By search = By.cssSelector("#searchInput");
     private final By result = By.cssSelector("#firstHeading.mw-first-heading");
 
-    public void clickOnSearch(){
+    public SearchPage clickOnSearch(){
         click(search, 10);
+        return this;
     }
 
-    public void fillText(String text){
+    public SearchPage fillText(String text){
         send(search, text);
+        return this;
     }
 
-    public void enterSearch(){
+    public SearchPage enterSearch(){
         clickEnter(search);
+        return this;
     }
 
     public String getTitle(){

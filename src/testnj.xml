@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testnj.org/testnj-1.0.dtd">
+
+<suite name="Simple">
+    <test name="Search/Login">
+        <classes>
+            <class name="SearchTest"/>
+            <class name="AutorizationTest"/>
+        </classes>
+    </test>
+</suite>

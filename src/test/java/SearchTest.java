@@ -1,22 +1,21 @@
 import org.testng.annotations.Test;
 import po.SearchPage;
 
-import static org.testng.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchTest extends BaseTest{
 
-    SearchPage search = new SearchPage();
-
     @Test
     void shouldBeVisibleResultSearch(){
-            search.clickOnSearch();
-            search.fillText("Ubisoft");
-            search.enterSearch();
+        new SearchPage()
+                .clickOnSearch()
+                .fillText("Ubisoft")
+                .enterSearch();
 
 
-//            assertThat(search.getTitle()).as("Result").isEqualTo("Ubisoft");
-            assertEquals("Ubisoft", search.getTitle());
-
+        assertThat(new SearchPage().getTitle())
+                    .as("The result of test is appeared")
+                    .isEqualTo("Ubisoft");
     }
 
 }

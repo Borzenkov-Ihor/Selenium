@@ -1,17 +1,23 @@
+import builder.UserPageBuilder;
 import org.testng.annotations.Test;
 import po.UserPage;
 
 import static org.testng.Assert.assertEquals;
 
 public class AutorizationTest extends BaseTest{
-    UserPage user = new UserPage();
+
     @Test
     void Autorization(){
-        user.clickOnAutorization();
-        user.fillTextNameUser("Setty2008");
-        user.fillTextPasswordUser("qwerty2008");
-        user.enterAutorisation();
+        new UserPage()
+                .clickOnAutorization();
 
-        assertEquals("Setty2008", user.getTitle());
+        UserPage user = new UserPageBuilder()
+                .withUserName("Setty2008")
+                .withUserPassword("qwerty2008")
+                .build();
+
+        user.clickEnter();
+
+        assertEquals("Setty2008", new UserPage().getTitle());
     }
 }
